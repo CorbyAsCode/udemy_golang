@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// This is a general description of what USB ports do. It can also have other functions.
 type usb interface {
 	input()
 	output()
@@ -15,7 +16,7 @@ type keyboardUsbCable struct {
 }
 
 func (k keyboardUsbCable) description() {
-	fmt.Printf("%s %s keyboard USB cable.\n", k.manufacturer, k.model)
+	fmt.Printf("%s %s keyboard USB cable\n", k.manufacturer, k.model)
 }
 
 func (k keyboardUsbCable) input() {
@@ -44,6 +45,7 @@ func (c cameraUsbCable) output() {
 	fmt.Printf("I can transfer pictures through the USB port.\n")
 }
 
+// This function takes the interface and makes use of the methods attached to it.
 func usesOfUsb(u usb) {
 	u.description()
 	u.input()
@@ -53,8 +55,12 @@ func usesOfUsb(u usb) {
 
 func main() {
 	fmt.Println()
+
+	// Create our USB connectors
 	myCameraConnector := cameraUsbCable{manufacturer: "Nikon", model: "D90"}
 	myKeyboardConnector := keyboardUsbCable{manufacturer: "Apple", model: "A1242"}
+
+	// What can our USB connectors do?
 	usesOfUsb(myCameraConnector)
 	usesOfUsb(myKeyboardConnector)
 
