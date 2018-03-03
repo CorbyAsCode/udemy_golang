@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// This is a general description of what USB ports do. It can also have other functions.
+// This is generally what USB ports do and how we describe them.
 type usb interface {
 	input()
 	output()
